@@ -8,7 +8,7 @@ public class Url {
     public static String token = "Bearer ";
 
     //backend hosted path
-    public static final String backend_URL = "http://10.0.2.2:3000/";
+    public static final String backend_URL = "http://10.0.2.2:3020/";
 
     //profile Image path
     public static String uploads = backend_URL + "proImage/";

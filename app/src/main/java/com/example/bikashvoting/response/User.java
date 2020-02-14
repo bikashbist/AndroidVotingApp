@@ -10,6 +10,14 @@ public class User {
     private String[] votes;
     private boolean verify;
 
+    public User(String firstName, String lastName, String username, String password, String type) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.type = type;
+    }
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;

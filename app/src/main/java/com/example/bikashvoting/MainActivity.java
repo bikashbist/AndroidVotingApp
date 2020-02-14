@@ -2,6 +2,7 @@ package com.example.bikashvoting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -36,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         etpass=findViewById(R.id.etPassword);
         btnlogin=findViewById(R.id.btnLogin);
         btnregister=findViewById(R.id.btnRegister);
+
+        btnregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(), register_vote_app.class);
+                startActivity(intent);
+            }
+        });
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
