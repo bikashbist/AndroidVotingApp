@@ -2,6 +2,7 @@ package com.example.bikashvoting.Apis;
 
 import com.example.bikashvoting.response.LoginResponse;
 import com.example.bikashvoting.response.User;
+import com.example.bikashvoting.response.VoteResponse;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface UserApi {
     //login
@@ -24,8 +26,8 @@ public interface UserApi {
     Call<User> getUser(@Header("Authorization") String token);
 
     //vote
-    @PUT("users/loggedUserDetails")
-    Call<User> getUser(@Header("Authorization") String token);
+    @PUT("users/vote/{id}")
+    Call<VoteResponse> vote(@Path("id") String id, @Header("Authorization") String token);
 
     //candidateUserList
     @GET("users/candidateUser/")
