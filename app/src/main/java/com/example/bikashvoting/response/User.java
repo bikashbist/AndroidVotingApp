@@ -1,6 +1,7 @@
 package com.example.bikashvoting.response;
 
 public class User {
+    private String _id;
     private String firstName;
     private String lastName;
     private String username;
@@ -23,6 +24,7 @@ public class User {
         this.password = password;
     }
 
+
     public User(String firstName, String lastName, String username, String password, String image, String type, String[] votes, boolean verify) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,6 +34,15 @@ public class User {
         this.type = type;
         this.votes = votes;
         this.verify = verify;
+    }
+
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getFirstName() {
