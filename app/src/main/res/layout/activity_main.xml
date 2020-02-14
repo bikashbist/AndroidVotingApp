@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:orientation="vertical"
+
+    android:background="@color/colorBackground"
+    android:padding="40dp"
     tools:context=".MainActivity">
 
 
@@ -12,41 +15,43 @@
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:background="@android:color/white"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/border_line"
         android:gravity="center"
         android:hint="Entre Username"
+        android:padding="15dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/login_title" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:background="@android:color/white"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/border_line"
         android:gravity="center"
         android:hint="Entre Password"
+        android:padding="15dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/black"
         android:textSize="25dp"
         app:layout_constraintTop_toBottomOf="@+id/etUsername"
-        tools:layout_editor_absoluteX="0dp" />
-
+        tools:layout_editor_absoluteX="40dp" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="261dp"
         android:layout_height="64dp"
-        android:layout_marginTop="88dp"
-        android:background="@android:color/white"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/login_rounded"
+        android:padding="15dp"
+
         android:text="Login"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,15 +61,29 @@
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:background="@android:color/white"
+        android:background="@drawable/button_rounded"
+        android:padding="15dp"
         android:text="Register"
-        android:textSize="25dp"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.185" />
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:textColor="@color/colorPrimaryDark"
+
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
