@@ -63,11 +63,16 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Username or password error", Toast.LENGTH_SHORT).show();
                         }
                         if(response.body().getCode()==200){
-                            Toast.makeText(MainActivity.this, "voter Login", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(MainActivity.this, "voter Login", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(getApplicationContext(),voter_dashbord.class);
+                            startActivity(intent);
                         }else if(response.body().getCode()==201){
-                            Toast.makeText(MainActivity.this, "candidate login", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(MainActivity.this, "candidate login", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(getApplicationContext(),CanDashboardActivity.class);
+                            startActivity(intent);
                         }else {
                             Toast.makeText(MainActivity.this, ""+ response.body().getStatus(), Toast.LENGTH_SHORT).show();
+
                         }
                     }
 
