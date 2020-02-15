@@ -49,7 +49,7 @@ public interface UserApi {
     Call<User> deleteUser(@Header("Authorization") String token);
 
     @PUT("users/candidateUser")
-    Call<User> updateUser(@Header("Authorization") String token,@Body User user);
+    Call<User> updateUser(@Header("Authorization") String token, @Body User user);
 
     //signup
     @POST("users/signup")
