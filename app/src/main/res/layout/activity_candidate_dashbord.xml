@@ -33,20 +33,49 @@
             android:text="Logged Username"
             android:textColor="#000"
             android:textSize="25dp" />
+
     </LinearLayout>
 
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclevotes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" >
+        android:layout_height="500dp"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclevotes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="168dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/button_rounded"
+        android:text="Logout"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclevotes"
+        app:layout_constraintVertical_bias="0.991" />
+
+
+    <TextView
+        android:id="@+id/profileCan"
+        android:layout_width="168dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button_rounded"
+        android:gravity="center"
+        android:text="Profile"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logout"
+        app:layout_constraintTop_toBottomOf="@+id/recyclevotes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

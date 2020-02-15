@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.example.bikashvoting.Apis.UserApi;
 import com.example.bikashvoting.Url.Url;
 import com.example.bikashvoting.adapter.CandidateAdapter;
+import com.example.bikashvoting.adapter.VotesAdapter;
 import com.example.bikashvoting.response.User;
 import com.example.bikashvoting.strictMode.StrictModeClass;
 
@@ -31,7 +34,7 @@ import retrofit2.Response;
 public class candidate_dashbord extends AppCompatActivity {
 
     CircleImageView circleImageView;
-    TextView textView;
+    TextView textView,logout,profile;
     public static String loggedUserId;
     RecyclerView recyclerView;
 
@@ -46,8 +49,26 @@ public class candidate_dashbord extends AppCompatActivity {
         setContentView(R.layout.activity_candidate_dashbord);
         circleImageView=findViewById(R.id.cili);
         textView=findViewById(R.id.tvluc);
+        logout=findViewById(R.id.logout);
         recyclerView=findViewById(R.id.recyclevotes);
+        profile=findViewById(R.id.profileCan);
         getLoggedUser();
+        getUserList();
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Url.token="Bearer ";
+                Intent intent=new Intent(v.getContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -61,12 +82,11 @@ public class candidate_dashbord extends AppCompatActivity {
                 if (!response.isSuccessful()){
                     Toast.makeText(candidate_dashbord.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }else {
-                    List<User> candidateUserList=response.body();
+                    List<User> votesList=response.body();
                     //System.out.println();
-                    //CandidateAdapter candidateAdapter=new CandidateAdapter(candidate_dashbord.this,candidateUserList);
-                    //recyclerView.setAdapter(candidateAdapter);
-
-                    //recyclerView.setLayoutManager(new LinearLayoutManager(candidate_dashbord.this, LinearLayoutManager.VERTICAL, false));
+                    VotesAdapter votesAdapter=new VotesAdapter(candidate_dashbord.this,votesList);
+                    recyclerView.setAdapter(votesAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(candidate_dashbord.this, LinearLayoutManager.VERTICAL, false));
                 }
             }
 
@@ -90,7 +110,7 @@ public class candidate_dashbord extends AppCompatActivity {
                     Toast.makeText(candidate_dashbord.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }else {
                     loggedUserId=response.body().get_id();
-                    textView.setText("Welcome: "+response.body().getFirstName()+response.body().getLastName());
+                    textView.setText("Welcome: "+response.body().getFirstName()+" "+response.body().getLastName());
 
                     String imagepath = Url.uploads + response.body().getImage();
                     System.out.println(imagepath);
