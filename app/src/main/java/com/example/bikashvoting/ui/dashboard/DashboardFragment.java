@@ -2,12 +2,17 @@ package com.example.bikashvoting.ui.dashboard;
 
 import android.Manifest;
 import android.app.Notification;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -29,6 +34,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.bikashvoting.Apis.UserApi;
+import com.example.bikashvoting.MainActivity;
 import com.example.bikashvoting.ProfileCanActivity;
 import com.example.bikashvoting.R;
 import com.example.bikashvoting.Url.Url;
@@ -61,6 +67,7 @@ public class DashboardFragment extends Fragment {
     String imageName = "";
 
     private DashboardViewModel dashboardViewModel;
+    private SensorManager sensorManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +79,43 @@ public class DashboardFragment extends Fragment {
         btnUpdate = root.findViewById(R.id.btnUpdateProfileVoter);
         firstname = root.findViewById(R.id.etfirstnameUpdateVoter);
         lastname = root.findViewById(R.id.etlastnameUpdateVoter);
+        sensorManager = (SensorManager) getContext().getSystemService(Context.SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+
+
+
+
+        SensorEventListener sensorEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                float[] values = event.values;
+                String xAxis = "x: " + values[0];
+                String yAxis = "y: " + values[1];
+                String zAxis = "z: " + values[2];
+                float x = values[0];
+
+                if (x > 3) {
+                    Url.token = "Bearer ";
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+                System.out.println(xAxis);
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+
+        if (sensor != null) {
+            sensorManager.registerListener(sensorEventListener, sensor, sensorManager.SENSOR_DELAY_NORMAL);
+        } else {
+            Toast.makeText(getContext(), "Sensor not found", Toast.LENGTH_SHORT).show();
+        }
+
+
 
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
