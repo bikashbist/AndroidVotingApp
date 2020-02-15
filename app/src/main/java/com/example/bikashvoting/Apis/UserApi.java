@@ -10,6 +10,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -41,6 +42,11 @@ public interface UserApi {
     //candidateUserList
     @GET("users/candidateUser/")
     Call<List<User>> getUserList(@Header("Authorization") String token);
+
+
+    //deletecandidateuser
+    @DELETE("users/candidateUser")
+    Call<User> deleteUser(@Header("Authorization") String token);
 
     @PUT("users/candidateUser")
     Call<User> updateUser(@Header("Authorization") String token,@Body User user);
