@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                             Url.token+=response.body().getToken();
                             Intent intent=new Intent(getApplicationContext(),candidate_dashbord.class);
                             startActivity(intent);
-                        }else {
+                        }
+                        else {
                             Toast.makeText(MainActivity.this, ""+ response.body().getStatus(), Toast.LENGTH_SHORT).show();
 
                         }

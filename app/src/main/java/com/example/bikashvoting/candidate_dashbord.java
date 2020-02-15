@@ -76,7 +76,7 @@ public class candidate_dashbord extends AppCompatActivity {
     private  void getUserList(){
         StrictModeClass.StrictMode();
         UserApi userApi= Url.getInstance().create(UserApi.class);
-        final Call<List<User>> getUserListCall=userApi.getUserList();
+        final Call<List<User>> getUserListCall=userApi.getUserList(Url.token);
         getUserListCall.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {

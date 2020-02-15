@@ -11,6 +11,14 @@ public class User {
     private String[] votes;
     private boolean verify;
 
+
+    public User(String firstName,String lastName,String type){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.type = type;
+    }
+
+
     public User(String firstName, String lastName, String username, String password, String type) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,11 +27,15 @@ public class User {
         this.type = type;
     }
 
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    public User(String image) {
+        this.image = image;
+    }
 
     public User(String firstName, String lastName, String username, String password, String image, String type, String[] votes, boolean verify) {
         this.firstName = firstName;
