@@ -31,7 +31,7 @@ public interface UserApi {
 
     //candidateUserList
     @GET("users/candidateUser/")
-    Call<List<User>> getUserList(@Header("Authorization") String token);
+    Call<List<User>> getUserList();
 
     //signup
     @POST("users/signup")

@@ -65,12 +65,13 @@ public class MainActivity extends AppCompatActivity {
                         if(response.body().getCode()==200){
                           //  Toast.makeText(MainActivity.this, "voter Login", Toast.LENGTH_SHORT).show();
                             Url.token+=response.body().getToken();
-                            Intent intent=new Intent(getApplicationContext(),voter_dashbord.class);
+                            Intent intent=new Intent(getApplicationContext(), VotDashboardActivity.class);
+
                             startActivity(intent);
                         }else if(response.body().getCode()==201){
                            // Toast.makeText(MainActivity.this, "candidate login", Toast.LENGTH_SHORT).show();
                             Url.token+=response.body().getToken();
-                            Intent intent=new Intent(getApplicationContext(),CanDashboardActivity.class);
+                            Intent intent=new Intent(getApplicationContext(),candidate_dashbord.class);
                             startActivity(intent);
                         }else {
                             Toast.makeText(MainActivity.this, ""+ response.body().getStatus(), Toast.LENGTH_SHORT).show();

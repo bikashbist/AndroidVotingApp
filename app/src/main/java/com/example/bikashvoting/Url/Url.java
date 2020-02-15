@@ -11,7 +11,7 @@ public class Url {
     public static final String backend_URL = "http://10.0.2.2:3020/";
 
     //profile Image path
-    public static String uploads = backend_URL + "proImage/";
+    public static String uploads = backend_URL +"proImage/";
     //post Image path
 
 
