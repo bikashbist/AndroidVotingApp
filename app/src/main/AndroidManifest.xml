@@ -15,9 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ProfileCanActivity"></activity>
         <activity
             android:name=".VotDashboardActivity"
-            android:label="@string/title_activity_can_dashboard"></activity>
+            android:label="@string/title_activity_can_dashboard" />
         <activity android:name=".candidate_dashbord" />
         <activity android:name=".register_vote_app" />
         <activity android:name=".SplashScreenActivity">

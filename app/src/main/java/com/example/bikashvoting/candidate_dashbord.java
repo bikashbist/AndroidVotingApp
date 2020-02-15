@@ -58,7 +58,8 @@ public class candidate_dashbord extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(candidate_dashbord.this,ProfileCanActivity.class);
+                startActivity(intent);
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
