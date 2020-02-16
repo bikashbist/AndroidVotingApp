@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/colorBackground"
     tools:context=".ProfileCanActivity">
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageViewUpdate"
         android:layout_width="198dp"
         android:layout_height="91dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/noimage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,25 +24,28 @@
         android:id="@+id/deleteAccount"
         android:layout_width="274dp"
         android:layout_height="72dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/login_rounded"
         android:text="Delete  Account"
         android:textColor="@android:color/white"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnupdateImage" />
 
-
     <Button
         android:id="@+id/btnupdateImage"
-        android:layout_width="184dp"
+        android:layout_width="220dp"
         android:layout_height="57dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginRight="95dp"
         android:background="@drawable/login_rounded"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="Update Image"
         android:textColor="@android:color/white"
         android:textSize="25dp"
@@ -52,7 +58,7 @@
         android:id="@+id/etfirstnameUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/border_line"
         android:gravity="center"
         android:hint="Entre Firstname"
@@ -61,7 +67,7 @@
         android:textColorHint="@android:color/black"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteAccount" />
 
@@ -69,7 +75,7 @@
         android:id="@+id/etlastnameUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/border_line"
         android:gravity="center"
         android:hint="Entre Lastname"
@@ -78,7 +84,7 @@
         android:textColorHint="@android:color/black"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etfirstnameUpdate" />
 
@@ -94,10 +100,10 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etlastnameUpdate"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
